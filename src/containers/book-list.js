@@ -20,7 +20,8 @@ class BookList extends Component{
 		)
 	}
 }
-
+//Anything returned from this function will end up as props
+//on the BookList container
 function mapStateToProps(state){
 	//Whatever is returned will show up as props
 	//inside of BookList
@@ -30,6 +31,8 @@ function mapStateToProps(state){
 }
 
 function mapDespatchToProps(dispatch){
-	return bindActionCreators({ selectBook : selectBook})
+	//whenever selectBook is called, the result should be 
+	//passed to all of our reducers
+	return bindActionCreators({ selectBook : selectBook}, dispatch);
 }
-export default connect(mapStateToProps)(BookList);
+export default connect(mapStateToProps, mapDespatchToProps)(BookList);
