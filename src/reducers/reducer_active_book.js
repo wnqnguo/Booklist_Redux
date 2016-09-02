@@ -8,3 +8,4 @@ export default function(state = null, action){
 	}
 	return state
 }
+//don't ever mutate the state
